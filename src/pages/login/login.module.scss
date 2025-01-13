@@ -1,0 +1,99 @@
+.loginWrapper{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(#ffbca7d1,#f6ead8);
+    height:100vh;
+    .cont{
+        width: 30rem;
+        padding: 1rem;
+        position: absolute;
+        top: 5rem;
+
+        .form{
+            margin-top: 1.6rem;
+        }
+        
+        .heading{
+            .header{
+                display: flex;
+                justify-content: center;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            .text{
+                padding: 0.5rem;
+                font-size: 0.9rem;
+                color: #857e7e;
+            }
+        }
+        .mB3{
+            margin-bottom: 2rem !important;
+        }
+        .loginBtn{
+            width: 100%;
+             background: linear-gradient(to bottom right, #ebbdaf, #FF9A5A);
+             border: 0;
+             border-radius: 12px;
+             color: #FFFFFF;
+             cursor: pointer;
+             display: inline-block;
+             font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+             font-size: 16px;
+             font-weight: 500;
+             line-height: 2.5;
+             outline: transparent;
+             padding: 0 1rem;
+             text-align: center;
+             text-decoration: none;
+             transition: box-shadow .2s ease-in-out;
+             user-select: none;
+             -webkit-user-select: none;
+             touch-action: manipulation;
+             white-space: nowrap;
+             margin-bottom: 0.5rem;
+             
+             &:hover{
+                box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+             }
+            }
+
+
+    .formStyles{
+        // background-color: #dfbac0;
+        padding:0 5rem;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        input{
+            background-color: #f6ead8;
+        }
+    }
+    
+    .linkText{
+        display: flex;
+        justify-content: end;
+        .linkPlaintxt{
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+        .linkHref{
+            color: #f9c4b6;
+            font-weight: 500;
+        }
+    }
+}
+
+@media screen and ( max-width:485px){
+        .cont{
+            width: 25rem !important;
+        }
+    
+}
+
+@media screen and ( max-width:400px){
+    .cont{
+        width: 22rem !important;
+    }
+
+}
