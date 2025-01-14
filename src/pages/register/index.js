@@ -37,7 +37,7 @@ const Signup = () => {
         };
         signup(requestOptions).then(data => {
             console.log(data);
-            navigate('/search')
+            navigate('/login')
             setLoading(false)
         })
       };
