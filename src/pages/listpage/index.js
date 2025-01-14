@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllFiltersByUserId } from './listpage.service';
+import { deletebyListId, getAllFiltersByUserId } from './listpage.service';
 import { useNavigate } from 'react-router';
 import Cookies from "universal-cookie";
 import styles from './listpage.module.scss'
@@ -15,6 +15,11 @@ const ListPage=()=>{
 
     useEffect(()=>{
        if(userId){
+        getAllFilterSets(userId);
+       }
+    },[userId]);
+
+    const getAllFilterSets=(userId)=>{
         const requestOptions = {
             method: 'GET',
              headers: { 'Content-Type': 'application/json',
@@ -26,8 +31,21 @@ const ListPage=()=>{
         },(err)=>{
             console.log(err)
         })
-       }
-    },[userId])
+    }
+
+    const deletesethandler=(listId)=>{
+        const requestOptions = {
+            method: 'DELETE',
+             headers: { 'Content-Type': 'application/json',
+             Authorization: `Bearer ${Authtoken}` }
+          };
+         deletebyListId(requestOptions,listId)
+         .then(data => {
+           getAllFilterSets(userId);
+        },(err)=>{
+            console.log(err)
+        })
+    }
 
 
 
@@ -36,12 +54,12 @@ const ListPage=()=>{
             <div className={styles.cardWrapper}>
             {filtersets?.map((item)=>(
                 <div key={item?._id} className={styles.card}>
-                    <div>Filter Name: {item?.filterName}</div>
-                    <div>Created At : {moment(item?.createdAt).format('DD/MM/YYYY HH:mm')}</div>
-                    <div>Response Codes : {item?.images?.map((img)=>img?.code)?.join(',')}</div>
+                    <div className={styles.title}>Filter Name: {item?.filterName}</div>
+                    <div className={styles.date}>Created At : {moment(item?.createdAt).format('DD/MM/YYYY HH:mm')}</div>
+                    <div className={styles.code}>Response Codes : {item?.images?.map((img)=>img?.code)?.join(',')}</div>
                     <div className={styles.actionBtns}>
-                        <div><Button onClick={()=>navigate(`/search/${item?._id}`)}>Edit</Button></div>
-                        <div><Button>Delete</Button></div>
+                        <div className={styles.btn}><Button type='primary' onClick={()=>navigate(`/search/${item?._id}`)}>Edit</Button></div>
+                        <div className={styles.btn}><Button onClick={()=>deletesethandler(item?._id)}>Delete</Button></div>
                     </div>
                 </div>
             ))}

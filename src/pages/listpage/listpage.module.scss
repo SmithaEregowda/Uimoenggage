@@ -3,6 +3,7 @@
     .cardWrapper{
         display: flex;
         flex-wrap: wrap;
+        grid-gap: 1rem;
         .card{
             width: 20rem;
             height: 20rem;
@@ -10,12 +11,48 @@
             border-radius: 10px;
             cursor: pointer;
             background-color: white;
-            box-shadow: 2px 2px 3px 1px rgb(83, 81, 81);
+            box-shadow: 0 4px 8px  rgb(83, 81, 81);
             padding: 1rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
             &:hover{
-                width: 20.4rem;
-                height: 20.4rem;
-                box-shadow: 2px 2px 1px 1px black;
+                transform: translateY(-5px);
+                box-shadow: 0 4px 8px black;
+            }
+            .title{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1.5rem;
+            }
+            .date{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1.5rem;
+            }
+            .code{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1.5rem;
+                white-space: normal;
+                word-wrap: break-word; 
+                overflow-wrap: break-word
+            }
+            .actionBtns{
+                display: grid;
+                grid-template-columns: auto auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                gap: 10px;
+                margin-top: 15px;
+                position: absolute;
+                bottom: 1rem;
+                width: 100%;
+                .btn{
+                    width: 100%;
+                }
             }
         }
     }

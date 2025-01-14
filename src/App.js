@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
 import Signup from "./pages/register";
 import Cookies from "universal-cookie";
@@ -12,11 +12,14 @@ function App() {
 
   return (
     <div>
-      <div>
-        <div>Search Page</div>
-        <div>Listing Page</div>
-      </div>
+    
       <BrowserRouter>
+      {token&&
+      <div className="navWrapper">
+      <Link to="/search">Search List</Link>
+      <Link to="/listpage">Filter List</Link>
+      </div>
+      }
       <Routes>
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />

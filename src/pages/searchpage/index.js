@@ -153,7 +153,7 @@ const  SearchPage=()=> {
       {/* Rendered Images */}
       <div className={styles.imageContainer}>
         {images.length === 0 ? (
-          <p>No images to display. Please apply a filter.</p>
+          <p className={styles.emptyImages}>No images to display. Please apply a filter.</p>
         ) : (
           images.map((imgSrc, index) => (
             <div key={index} className={styles.imageItem}>
