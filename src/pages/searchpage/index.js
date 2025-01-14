@@ -5,6 +5,7 @@ import styles from './searchpage.module.scss'
 import { getFilterSet, saveFilterSet, updateFilterSet } from './searchpage.service';
 import { useNavigate, useParams } from 'react-router';
 import Cookies from "universal-cookie";
+import { Link } from 'react-router-dom';
 
 const  SearchPage=()=> {
   const [filter, setFilter] = useState('');
@@ -129,6 +130,10 @@ const  SearchPage=()=> {
 
   return (
     <div className={styles.searchWrapper}>
+      <div className="navWrapper">
+      <Link to="/search">Search List</Link>
+      <Link to="/listpage">Filter List</Link>
+      </div>
       <div className={styles.title}>Search Satus Code</div>
       <div className={styles.inputContainer}>
       <div className={styles.inputItem}>

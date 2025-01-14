@@ -5,6 +5,7 @@ import Cookies from "universal-cookie";
 import styles from './listpage.module.scss'
 import moment from 'moment';
 import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 const ListPage=()=>{
     const [filtersets,setFiltersets]=useState([]);
@@ -51,6 +52,10 @@ const ListPage=()=>{
 
     return(
         <div className={styles.listWrapper}>
+            <div className="navWrapper">
+      <Link to="/search">Search List</Link>
+      <Link to="/listpage">Filter List</Link>
+      </div>
             <div className={styles.cardWrapper}>
             {filtersets?.map((item)=>(
                 <div key={item?._id} className={styles.card}>

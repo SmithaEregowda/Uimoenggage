@@ -14,12 +14,6 @@ function App() {
     <div>
     
       <BrowserRouter>
-      {token&&
-      <div className="navWrapper">
-      <Link to="/search">Search List</Link>
-      <Link to="/listpage">Filter List</Link>
-      </div>
-      }
       <Routes>
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
